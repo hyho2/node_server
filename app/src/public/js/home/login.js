@@ -12,8 +12,8 @@ function login() {
         id: id.value,
         psword: psword.value
     };
-    console.log(req);
-    console.log(JSON.stringify(req));
+    // console.log(req);
+    // console.log(JSON.stringify(req));
 
     fetch("/login", {
         method: "POST",
@@ -21,7 +21,8 @@ function login() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(req),
-    })
+    }).then((res)=> res.json()) //res.json()의 반환값은 promise다
+      .then((res) => console.log(res));
 }
 
 
